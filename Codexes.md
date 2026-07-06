@@ -15,7 +15,7 @@ This revision discounts clean third-party OSS clones used for rapid review. It f
 - Git repos under non-archival `~/Work`: 229.
 - Repos in the `fear-ai`, `wkarshat`, or `zerocurrencycoin` namespaces: 43.
 - Dirty non-owned or no-remote repositories needing classification: 21.
-- Active local Codex app threads: 24 across 14 working directories; all are currently unarchived.
+- Active local Codex app threads: 20 across 12 working directories; all listed anchors are currently unarchived.
 - Active Codex Cloud tasks: 2, both held Fedload tasks with changes.
 
 Best current bets: continue `Spank` around `HECpoc` + `spank-rs` + `SpankMax`, and revive the Fedload/labor/specification arc as a connected program. The previously missed `~/Work/Github/truj` corpus materially strengthens that second bet: it contains the labor controlled vocabulary, aliases, source manifests, schemas, and validation attempts that the proposed revival otherwise would have had to invent. Best meta-tool to revive: `Codess/CodeSess`, because it solves the exact missing session ledger problem.
@@ -237,6 +237,8 @@ Schema realism note:
 
 ## Current Codex Session Anchors
 
+On 2026-07-06, the OpenClaw project list was reduced from five threads to three: the substantive threads were retitled, while `restart` and `check ~/.codex/config.toml` were archived as superseded operational history.
+
 | Title | Path | Updated | Git | Tokens |
 |---|---|---|---|---|
 | how to share sessions between this laptop and this application and with online and with other... | `~/Work/Spank/spank-rs` | 2026-07-05 15:22 | gh:fear-ai/spank-rs | 70076332 |
@@ -245,15 +247,11 @@ Schema realism note:
 | Spank Max | `~/Work/Spank/spank-rs` | 2026-06-06 00:31 | gh:fear-ai/spank-rs | 929195176 |
 | Read Setpack and ClawInfo.md | `~/Work/Claw/setpack` | 2026-04-28 19:19 | gh:fear-ai/setpack | 297236069 |
 | review ClawInfo.md; update all information and credential fields and values from files in ~/... | `~/Work/Claw` | 2026-04-12 22:13 | none | 102503620 |
-| update | `~/Work/Claw/openclaw` | 2026-04-11 00:06 | gh:fear-ai/openclaw | 22844830 |
-| explain /fast performance and cost | `~/Work/Claw/openclaw` | 2026-04-09 22:58 | gh:fear-ai/openclaw | 210536382 |
+| OpenClaw accounts, credentials, and provider roles | `~/Work/Claw/openclaw` | 2026-04-11 00:06 | gh:fear-ai/openclaw | 22844830 |
+| OpenClaw Gmail and gog integration | `~/Work/Claw/openclaw` | 2026-04-09 22:58 | gh:fear-ai/openclaw | 210536382 |
 | /model gpt-5.3 | `~/Work/Claw/openclaw-docs` | 2026-03-13 13:54 | gh:fear-ai/openclaw | 28454502 |
 | codex app | `~/Work/Claw/openclaw-docs` | 2026-03-11 21:09 | gh:fear-ai/openclaw | 15504 |
-| restart | `~/Work/Claw/openclaw` | 2026-03-05 19:01 | gh:fear-ai/openclaw | 35179871 |
-| review README and AGENTS | `~/Work/Claw/openclaw` | 2026-02-21 01:17 | gh:fear-ai/openclaw | 234024510 |
-| echo hello | `~/.openclaw-repo/workspace` | 2026-02-15 11:44 | none | 19318 |
-| Write a single-file Python script called hello.py that prints 'Hello from Codex' and the curr... | `/private/var/folders/yv/_m_tr_gd78n0k4823cvcz26h0000gn/T/tmp.b33iQ5imk1` | 2026-02-12 12:02 | none | 33830 |
-| check ~/.codex/config.toml | `~/Work/Claw/openclaw` | 2026-02-05 01:37 | gh:fear-ai/openclaw | 244416 |
+| OpenClaw email automation research and architecture | `~/Work/Claw/openclaw` | 2026-02-21 01:17 | gh:fear-ai/openclaw | 234024510 |
 | feature | `~/.codex` | 2026-02-05 01:30 | none | 20146 |
 | read AGENTS.md | `~/Work/WP/harduw` | 2026-01-03 18:07 | gh:wkarshat/harduw.git | 519183 |
 | read AGENTS.md WPages.md Status.md | `~/Work/WP/wpages` | 2026-01-02 02:25 | gh:fear-ai/wpages | 61995607 |
