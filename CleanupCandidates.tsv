@@ -1,0 +1,6 @@
+priority	action	kind	target	size	reason	prerequisite
+P1	trash_regenerable	dependency_cache	/Users/walter/Work/ZK/ZKs/insight/ecosystem/TENT/insight-ui-tent/node_modules	55M	npm dependencies inside nested upstream reference project	Retain package.json and package-lock.json; npm can restore dependencies
+P1	trash_regenerable	plugin_cache	/Users/walter/Work/Claw/Setpacks/openclaw/apr20/openclaw/home/.codex/.tmp/plugins	26M	Clean temporary clone of openai/plugins inside inactive pack cache	Confirm the apr20 pack and Codex plugin install are inactive
+P1	trash_incidental	metadata_file	/Users/walter/Work/Claw/Emails/neverest/.DS_Store	8K	Incidental macOS Finder metadata in otherwise clean upstream clone	Add or rely on a global .DS_Store ignore
+P1	hold_cloud_task	fedload_cloud_task	https://chatgpt.com/codex/tasks/task_e_68547b426c7c8320ada7718f8d58f08f	87 lines	Three short Fedload design files; branch and task retained pending final comparison	Compare ANA.md, DES.md, and PLAN.md with current Fedload docs before separate branch/task removal decision
+P1	hold_cloud_task	fedload_cloud_task	https://chatgpt.com/codex/tasks/task_e_68507496a5088320b00e37e4fd604842	7 changed lines	Valid tests/test_main.py import-order fix not present on develop	Reapply or save the patch before any later task removal
