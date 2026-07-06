@@ -4,7 +4,7 @@ Generated: 2026-06-26 from `~/Work` and non-secret Codex metadata in `~/.codex`.
 
 Companion review: `~/Work/Codex/ContextSystems.md` inventories the authored `CLAUDE.md` / `AGENTS.md` deployments, Claude memory systems, prompt libraries, session-store work, and effective Claude/Codex permission layers. It proposes a compact operating model for carrying project truth and transition state forward while keeping runtime enforcement auditable.
 
-This documentation set is maintained in `~/Work/Codex`, on branch `main`, with remote `https://github.com/wkarshat/codex.git`. The remote was empty when connected on 2026-07-04; the first consolidated project/session/cleanup checkpoint was prepared for push on 2026-07-06.
+This documentation set is maintained in `~/Work/Codex`, on branch `main`, with remote `https://github.com/wkarshat/codex.git`. The remote was empty when connected on 2026-07-04; the first consolidated project/session/cleanup checkpoint was pushed as `5de9506` on 2026-07-06.
 
 Cleanup guide: `~/Work/Codex/Cleanup.md` provides conservative manual directions, while `~/Work/Codex/CleanupCandidates.tsv` names exact directories, repositories, session IDs, cloud-task URLs, prerequisites, and recommended actions for automated auditing or quarantine.
 
