@@ -232,13 +232,22 @@ This is a real shift from bounded execution toward convenience and autonomy. The
 `~/.claude/settings.json` currently has:
 
 - permission mode `acceptEdits`;
-- 47 user-level allow entries;
+- 48 user-level allow entries;
 - 7 deny entries;
 - no active hooks;
 - auto-compaction and away summaries disabled;
 - co-author trailers disabled while built-in Git instructions remain enabled.
 
-The global allows include unrestricted-prefix forms for Python, curl, GitHub CLI, copy, trash, cargo, uv, jq, sed, awk, write, and edit. The deny list protects selected credential paths only through Claude's `Read` tool.
+The global allows include unrestricted-prefix forms for Git, Python, curl,
+GitHub CLI, copy, trash, cargo, uv, jq, sed, and awk, plus bare `Edit`,
+`Write`, `WebFetch`, and `WebSearch`. The deny list protects selected credential
+paths only through Claude's `Read` tool.
+
+`Bash(git:*)` is already active at user scope. The older `Bash(git add *)`,
+`Bash(git stash list *)`, and `Bash(git stash show *)` entries are therefore
+redundant. This broad rule minimizes Git prompts, but it also covers remote and
+history-changing Git operations; it is a convenience stance, not a read-only
+Git policy.
 
 That boundary is incomplete. A denied `Read(~/.ssh/**)` does not by itself prevent an allowed Python or shell command from reading the same path. Secret-path protection must exist at the sandbox, OS, or Bash-policy layer too; tool-specific deny rules are not a general information-flow boundary.
 
@@ -256,11 +265,56 @@ Eighteen non-archival project-specific Claude permission files remain as `.claud
 
 The regenerated `local.csv` contains 50 unique WebFetch hostnames from non-archival local settings, but parameterized domain grants are not migration candidates under this rule. `domains.cvs` contains the corresponding 44 sorted unique base domains for reference.
 
-The broad forms currently found across those files are bare `Bash`, `Read`, `Write`, `Edit`, and `WebSearch`, plus `Bash(command:*)` families for shell/interpreter and inspection tools. These are the only local allows worth comparing with the user baseline. Entries such as exact Git commands, paths, `Bash(done)`, loop fragments, environment assignments, and one-off test invocations are approval residue rather than policy abstractions.
+The broad forms currently found across those files are bare `Bash`, `Read`,
+`Write`, `Edit`, and `WebSearch`, plus `Bash(command:*)` families for
+shell/interpreter and inspection tools. These are the only local allows worth
+comparing with the user baseline. Entries such as exact Git commands, paths,
+`Bash(done)`, loop fragments, environment assignments, and one-off test
+invocations are approval residue rather than policy abstractions.
+
+Current Git-rule examples divide into three useful classes:
+
+- user policy: `~/.claude/settings.json` has the active `Bash(git:*)` grant;
+- tracked project policy: `mcpred/.claude/settings.json` repeats
+  `Bash(git:*)`;
+- reference examples: the cloned `agentdb`, `agentic-flow`, and `ruflo`
+  settings enumerate separate `git add`, `branch`, `checkout`, `commit`,
+  `config`, `diff`, `log`, `push`, `stash`, `status`, and `tag` rules.
+
+The ZK and coding-tool `settings.local.json` files contain similar operation
+lists, but those are local approval residue. They are evidence for which command
+families recur, not portable policy. Since the user-level `Bash(git:*)` rule is
+already broader, copying those lists would add duplication without reducing
+prompts.
+
+Prompt-level autonomy stances also recur, but mostly in reference projects:
+
+- `oh-my-codex/AGENTS.md` says to complete work without asking and narrows
+  questions to irreversible, side-effectful, or materially branching actions;
+- OpenClaw workspace templates say "Don't ask permission. Just do it," while
+  separately requiring confirmation for destructive commands;
+- the Codex source `AGENTS.md` allows formatting and scoped tests without asking,
+  but asks before the full test suite;
+- the authored `Claude/Agents` and `Misses` rules take the more conservative
+  stance that commit, push, destructive filesystem changes, installs, and remote
+  execution require approval.
+
+The useful synthesis is not blanket autonomy. State once that routine,
+reversible inspection, editing, formatting, and scoped verification proceed
+without confirmation; reserve questions for destructive changes, publication,
+credential use, and choices that materially change the requested result. This
+reduces conversational approval calls while runtime allows handle repeated tool
+acceptance.
 
 ### Permission Research That Worked
 
 `CContext/permission_audit.md` inspected eight Spank JSONL sessions and found seven denial events. Its key practical finding was not repeated denial of an already-approved path; it was command-shape mismatch. Claude's matcher evaluated the leading token, so commands beginning with an assignment or `for` did not match the allowlisted command later in the shell string.
+
+The practical acceptance rule is consequently simple: begin the tool call with
+the allowlisted executable. `git -C <path> ...` matches the Git family;
+`cd <path> && git ...`, `VAR=value git ...`, and a `for` loop begin with a
+different token and may ask again. Direct one-command calls improve acceptance
+more reliably than accumulating exact command strings.
 
 `Misses/PromptProps.md` refined that into a useful rule:
 
@@ -291,7 +345,11 @@ Use a small baseline plus explicit exceptions.
 
 1. User baseline: default to workspace-bounded filesystem access, network only when needed, and approval for side effects. Do not use global full-access/never as the durable default.
 2. Project policy: track only reviewed `.claude/settings.json` hooks or narrow rules that every checkout needs. Keep `settings.local.json` as disposable user-specific residue.
-3. High-risk actions: always gate Git commit/push/rebase, recursive deletion, package installation, remote execution, process-wide kill, privilege escalation, and non-GET remote requests.
+3. High-risk actions: choose one explicit stance. A narrow stance gates Git
+   commit/push/rebase; the current `Bash(git:*)` stance deliberately trades that
+   gate for fewer prompts. Recursive deletion, package installation, arbitrary
+   remote execution, process-wide kill, privilege escalation, and non-GET
+   remote requests should remain separately controlled.
 4. Secrets: deny them at filesystem/sandbox level where possible; do not rely on a `Read`-tool deny while arbitrary interpreters are allowed.
 5. Command design: prefer narrow direct invocations over compound shells. Approval rules should name stable command families, not session-specific command strings.
 6. Hooks: use them for logging, invariant checks, or bounded environment setup. Verify they are actually loaded; a renamed `settings.json0` is documentation, not deployment.

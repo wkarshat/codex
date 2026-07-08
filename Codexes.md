@@ -1,6 +1,6 @@
 # Codexes: Focused Project Triage
 
-Generated: 2026-06-26 from `~/Work` and non-secret Codex metadata in `~/.codex`. Updated: 2026-07-06.
+Generated: 2026-06-26 from `~/Work` and non-secret Codex metadata in `~/.codex`. Updated: 2026-07-07.
 
 Companion review: `~/Work/Codex/ContextSystems.md` inventories the authored `CLAUDE.md` / `AGENTS.md` deployments, Claude memory systems, prompt libraries, session-store work, and effective Claude/Codex permission layers. It proposes a compact operating model for carrying project truth and transition state forward while keeping runtime enforcement auditable.
 
@@ -12,11 +12,14 @@ This revision discounts clean third-party OSS clones used for rapid review. It f
 
 ## Bottom Line
 
-- Git repos under non-archival `~/Work`: 229.
-- Repos in the `fear-ai`, `wkarshat`, or `zerocurrencycoin` namespaces: 43.
-- Dirty non-owned or no-remote repositories needing classification: 21.
-- Active local Codex app threads: 20 across 12 working directories; all listed anchors are currently unarchived.
-- Active Codex Cloud tasks: 2, both held Fedload tasks with changes.
+- Seven authored repositories became clean and remote-reachable during the final
+  audit: CContext, Misses, Transcript planning, HECpoc, spank-py, Zero Insight,
+  and ZeroPerf.
+- Twelve concrete preservation gaps remain; they are listed near the end of this
+  document and exclude replaceable OSS clones and generated output.
+- Two held Fedload cloud tasks still contain changes requiring disposition.
+- The four reference shelves currently contain 125 repositories, of which 115
+  are clean upstream clones and therefore replaceable review caches.
 
 Best current bets: continue `Spank` around `HECpoc` + `spank-rs` + `SpankMax`, and revive the Fedload/labor/specification arc as a connected program. The previously missed `~/Work/Github/truj` corpus materially strengthens that second bet: it contains the labor controlled vocabulary, aliases, source manifests, schemas, and validation attempts that the proposed revival otherwise would have had to invent. Best meta-tool to revive: `Codess/CodeSess`, because it solves the exact missing session ledger problem.
 
@@ -24,13 +27,13 @@ Best current bets: continue `Spank` around `HECpoc` + `spank-rs` + `SpankMax`, a
 
 | Work | Paths | Call | Why |
 |---|---|---|---|
-| Spank HECpoc + spank-rs + SpankMax | ~/Work/Spank/HECpoc; ~/Work/Spank/spank-rs | Revive/continue | Most recent Codex work; HECpoc has 2026-06-24 commit plus local WIP; spank-rs has active Codex threads through 2026-06-26. This is the clearest current product line. |
+| Spank HECpoc + spank-rs + SpankMax | ~/Work/Spank/HECpoc; ~/Work/Spank/spank-rs | Revive/continue | HECpoc's June design WIP is now pushed on `main` at `76aa392`; spank-rs remains clean apart from an incidental error log. This is the clearest current product line. |
 | Fedload + Labor Dashboard + SDD/DSL specs | ~/Work/Github/fedloadw; ~/Work/Github/truj; ~/Work/Code/Schemas.md; ~/Work/Code/Misses/pDSL.md | Revive as connected research/tooling program | Fedload accumulated Federal Reserve source knowledge; `truj` extended the work into jobs/employment and produced a controlled vocabulary, source manifests, aliases, record experiments, and dashboard requirements; pDSL/SDD explored agent-fed specifications. Treat one labor-source ingestion path as the testbed. |
-| Misses / Petri LLM failure corpus | ~/Work/Code/Misses | Revive/continue | Recent 2026-06-27 commit plus six local changes; strong README with concrete next analysis. Worth preserving as research infrastructure. |
+| Misses / Petri LLM failure corpus | ~/Work/Code/Misses | Revive/continue | Parent corpus changes are pushed on `main` at `62f3fc8`; the nested Petri prompt-extraction patch remains local. Worth preserving as research infrastructure. |
 | LLM hardware architecture research | ~/Work/LLMHW | Recover and reassess narrowly | Aggregates the June 2025 ChatGPT investigation of cache structure, inference algorithms, Groq, Cerebras, and comparable accelerators. Next work is limited to verifying and organizing that earlier research; Equihash and the July 2026 `FableFrontiers` program are separate and out of scope. |
 | Codess / CodeSess session record store | ~/Work/Code/CodeSess | Revive for this exact pain | It addresses the session portability/status problem directly. `CodeSess` is now the sole local checkout; the stale lowercase duplicate was removed. Add Codex app state support. |
 | Zero / ZK active branch set | ~/Work/ZK/Zero400; ZeroMac; zerowallet*; Docs; ZKs/insight/*zero | Selective revive | Own namespace and recent commits; likely useful if Zero maintenance is still alive. Needs pruning: keep active Zero400/ZeroMac/current insight-zero line, archive older snapshots. |
-| OpenClaw + setpack | ~/Work/Claw/openclaw; ~/Work/Claw/setpack | Wrap or revive deliberately | Large Codex history and local WIP. Worth either a status/decision document or a clean closing commit; too much state to leave implicit. |
+| OpenClaw + setpack | ~/Work/Claw/openclaw; ~/Work/Claw/setpack | Preserved; finish two file copies | April code fixes, Claw research, and Setpack operations are pushed on dedicated branches. The Neverest skill and Gmail capture script still exist only in their source trees and remain the last preservation gap. |
 
 ## Fedload / Labor / SDD Cluster
 
@@ -189,7 +192,7 @@ This cluster is an audio/video transcription-service comparison site, but the de
 
 | Work | Path | What It Is | Stage | Assessment |
 |---|---|---|---|---|
-| Transcript planning repo | `~/Work/Github/Transcript` | Product/design/planning docs for a vendor-comparison platform: PRD, research, storage strategy, schema/types, security, search, vendor docs. | Branch `develop`; remote `gh:fear-ai/transcript`; local `develop` is one commit ahead of `origin/develop` at `2d173f8 Copyright notices`; untracked `Compare/CompG.txt`. | Keep as product-research record and strategy source. It is not the current app implementation. |
+| Transcript planning repo | `~/Work/Github/Transcript` | Product/design/planning docs for a vendor-comparison platform: PRD, research, storage strategy, schema/types, security, search, vendor docs. | Clean branch `develop` at `22dcd19`, tracking `gh:fear-ai/transcript`; `CompG.txt` is now committed at the repository root. | Keep as product-research record and strategy source. It is not the current app implementation. |
 | AVTrans web app | `~/Work/Github/Transcript/avtranscript` | Next.js/TypeScript app for the vendor directory and comparison site. Includes pages, vendor cards/lists, complexity/adaptive-display system, generated vendor data, and data-pipeline scripts. | Branch `develop` in sync with `origin/develop` at `f404e2e STATUS`, but local WIP is dirty: modified status/components/package, deleted CSVs/config/styles/validator, untracked `STATUS0.md` and `logs/`. | This is the implementation worth inspecting before archive/revival. Current WIP should be either reverted or completed deliberately, because it removed parts the docs call core. |
 | Datastore attempt | `TranscriptStorage.md`, `docs/DataPipeline.md`, `docs/VendorDataMigration.md`, `avtranscript/data`, `avtranscript/scripts`, `avtranscript/lib/data` | Storage designs evolved from PostgreSQL/Prisma to Phase I compiled files, then CSV -> JSON -> static TypeScript with smart caching and validation. Current generated data exists: 25 vendors, 25 affiliates, `lib/data/vendors.ts`. | Phase I data pipeline was documented as complete, but local WIP removed `data/vendors.csv`, `data/affiliates.csv`, `validate-affiliates.ts`, and data-pipeline package scripts/dependencies from `package.json`. | The datastore problem was not lack of a plan; it was too many plans plus partial implementation churn. Best revival path is compiled JSON/TS only for MVP, then postpone database/Redis. |
 | Research-to-site prototype | `TranscriptResearch.md`, `TranscriptSearch.md`, `docs/TranscriptVendors.md`, `docs/TranscriptChoices.*`, `docs/vendor-extended.ts`, `avtranscript/data` | The intended pipeline was: gather vendor/service/feature/pricing research online, normalize it into comparable records, validate it, then render an informational comparison site. | So far unsuccessful as a repeatable workflow. Research docs and generated data exist, but the conversion/store layer never settled into a simple durable shape. | This is the important reusable idea. Revive it as a tiny research-to-record pipeline before treating it as a web product. |
@@ -222,7 +225,7 @@ Schema realism note:
 
 | Work | Paths | Call | Why |
 |---|---|---|---|
-| spank-py | ~/Work/Spank/spank-py | Wrap-up / maybe superseded | Python SPL-compatible engine has local WIP but Rust HECpoc/spank-rs seems to have taken the lead. Preserve API lessons, publish/close package state, then stop carrying ambiguous WIP. |
+| spank-py | ~/Work/Spank/spank-py | Wrap-up / maybe superseded | Former WIP is pushed on `main` at `9b8c236`; Rust HECpoc/spank-rs still appears to have taken the lead. Preserve API lessons and close the package state deliberately. |
 | mcpconf / mcpred | ~/Work/Code/MCP/MCPs/mcpconf_cl; mcpconf_gpt5; mcpred | Wrap-up | Useful MCP tooling, but older. mcpred has local WIP. Decide if these become maintained tools or archive with final README/status. |
 | Transcript / avtranscript | ~/Work/Github/Transcript; ~/Work/Github/Transcript/avtranscript | Wrap-up or revive narrowly | Planning and prototype state are documented. The web app type-checks but current WIP breaks build after deleting styles/config/data-pipeline pieces. Either restore/fix the static build prototype or archive as product research. |
 | WP operational tools | ~/Work/WP/wpages; harduw; must-py; multiwp; wphack | Mostly wrap-up | Status files show concrete operational tools and next steps. If sites are no longer active, archive with final run instructions. If active, only harduw/wpages need light maintenance. |
@@ -307,34 +310,38 @@ On 2026-07-06, the OpenClaw project list was reduced from five threads to three:
 
 ## Reference-Pack Audit
 
-### Claw Project State: 2026-07-06
+### Claw Project State: 2026-07-07
 
 `~/Work/Claw` contains three different classes of material that should not be managed as one project root: authored integration work, replaceable upstream references, and runtime-pack state.
 
-The non-archival scan found 40 Git working roots: 16 under `Claws`, 18 under `Emails`, the two linked OpenClaw worktrees, `setpack`, and three repositories embedded in Setpack runtime/cache directories. Because the OpenClaw worktrees share one common Git repository, working-root count is intentionally not the same as independent-project count.
+The non-archival scan found 37 Git working roots: 13 under `Claws`, 18 under
+`Emails`, the two linked OpenClaw worktrees, `setpack`, and three repositories
+embedded in Setpack runtime/cache directories. Because the OpenClaw worktrees
+share one common Git repository, working-root count is intentionally not the
+same as independent-project count.
 
 | Path | Git state | Disposition |
 |---|---|---|
 | `openclaw` | Clean `codex/preserve-openclaw-april-fixes`, pushed to `fear-ai/openclaw`; four preservation commits on top of `feat/mails` | Keep branch as the durable April code record. Port individual fixes to current upstream only after revalidation. |
-| `openclaw-docs` | Clean `claw_emails`, pushed at `5d2592cb024` | Keep as the durable Gmail/auth/runtime and repository-status checkpoint. |
+| `openclaw-docs` | Clean `claw_emails`, pushed at `b0d45fa52e4` | Durable Gmail/auth/runtime checkpoint plus Claw, email, and NemoClaw research. It does not yet contain the Neverest skill or Gmail capture script. |
 | `setpack` | Clean `codex/preserve-setpack-april-ops`, pushed at `eac9afd` | Syntax, generation, sourcing, PATH, and idempotence checks pass. The destructive full `--force` lifecycle test remains deferred. |
-| `Claws/NemoClaw` | Local-only `nemow13` branch contains commit `24d5f3f` adding the 638-line `NemoClaw.md`; one lockfile line remains uncommitted | Preserve the branch through a personal fork or private bundle before treating the clone as replaceable. |
+| `Claws/NemoClaw` | Clone no longer present | The original contribution survives as `docs/research/NemoClaw.md` on pushed branch `claw_emails`; no vendor clone needs preservation. |
 | `Emails/himalaya` | One tracked build override: Rust 1.82.0 -> 1.90.0 | Keep as an explicit local patch only if current builds require it. |
 | `Emails/neverest` | Upstream-clean except untracked `.DS_Store` | Remove the incidental file; source is replaceable. |
 | `Setpacks/openclaw/ocrepo/openclaw/workspace` | Repository has no commits and eight untracked workspace/runtime entries | Not a project repository. Never publish `.openclaw` state; either initialize a deliberately filtered private history or remove the accidental `.git`. |
-| `Setpacks/openclaw/today/openclaw/workspace` | Local history plus 3,202 tracked deletions and nine untracked entries | Treat as private operational history. Decide whether its deleted email exports are an archive before removing or retaining `.git`. |
+| `Setpacks/openclaw/today/openclaw/workspace` | Local history plus 3,202 tracked deletions and 12 untracked entries | Treat as private operational history, not as a publishable project. Preserve only the unique Neverest skill; the bulk deletions are removed email exports and runtime state. |
 | `Setpacks/openclaw/apr20/.../.codex/.tmp/plugins` | Clean temporary clone of `openai/plugins` | Regenerable cache; safe to remove when the pack is inactive. |
 
 The two OpenClaw worktrees share the same repository and branch namespace. They are separate working directories, not independent clones or projects.
 
-The four explicit reference packs contain 128 Git repositories. Remote ownership distinguishes 121 upstream clones from seven locally controlled Zero repositories. A clean upstream clone is a replaceable reference cache; a locally controlled remote or dirty worktree is not.
+The four explicit reference packs contain 125 Git repositories. Remote ownership distinguishes 118 upstream clones from seven locally controlled Zero repositories. A clean upstream clone is a replaceable reference cache; a locally controlled remote or dirty worktree is not.
 
 | Pack | Repositories | Upstream clones | Locally controlled | Dirty |
 |---|---:|---:|---:|---:|
 | `~/Work/Spank/sOSS` | 55 | 55 | 0 | 1 |
-| `~/Work/ZK/ZKs` | 39 | 32 | 7 | 2 |
-| `~/Work/Claw/Claws` | 16 | 16 | 0 | 1 |
-| `~/Work/Claw/Emails` | 18 | 18 | 0 | 2 |
+| `~/Work/ZK/ZKs` | 39 | 32 | 7 | 1 |
+| `~/Work/Claw/Claws` | 13 | 13 | 0 | 0 |
+| `~/Work/Claw/Emails` | 18 | 18 | 0 | 1 |
 
 The seven locally controlled repositories inside `ZKs` are `tearodactyl/insight` plus six `zerocurrencycoin` repositories: `zerowallet-light-cli`, `lightwalletd`, `bitcore-node-zero`, `bitcore-lib-zero`, `insight-api-zero`, and `insight-ui-zero`. Keep them out of bulk upstream-clone cleanup.
 
@@ -342,12 +349,9 @@ The seven locally controlled repositories inside `ZKs` are `tearodactyl/insight`
 
 | Repository | Remote/class | Local state | Assessment |
 |---|---|---|---|
-| `ZKs/insight` | `tearodactyl/insight`; locally controlled | Four modified documentation/config files; 71 additions, 25 removals | Intentional Zero Insight work. Preserve and commit or patch; not a disposable reference clone. |
 | `ZKs/bitcoin-src` | `bitcoin/bitcoin`; upstream, detached | Untracked 13 KB `Zeros` multisig/signet tutorial | Unique local test/tutorial material. Move or commit it before replacing the clone. |
 | `Emails/himalaya` | `pimalaya/himalaya`; upstream | `rust-toolchain.toml` changes Rust 1.82.0 to 1.90.0 | Deliberate local build override. Record as a patch or revert after testing; never delete with the clone unnoticed. |
-| `Claws/NemoClaw` | `NVIDIA/NemoClaw`; upstream plus local-only branch | `nemow13` commit adds `NemoClaw.md`; `package-lock.json` adds the already-declared direct `ajv` dependency | Preserve the authored document commit outside this untracked local branch. The lockfile line is secondary and can be kept only with a reproducible dependency reason. |
 | `sOSS/python-json-logger` | `nhairs/python-json-logger`; upstream | One trailing blank line in `defaults.py` | No semantic change; safe to revert after confirmation. |
-| `Emails/neverest` | `pimalaya/neverest`; upstream | Untracked `.DS_Store` only | Incidental metadata; safe to remove. The source clone is otherwise clean. |
 
 ### Particularly Large Repositories
 
@@ -384,14 +388,63 @@ The OpenClaw source worktrees are now preservation rather than active-build envi
 
 ## Discounted Reference Clones
 
-The 116 clean upstream clones in the four audited packs are replaceable reference caches. Within `~/Work/Claw`, 15 of 16 `Claws` repositories and 16 of 18 `Emails` repositories are clean upstream references. Keep the focused working shelf (`NemoClaw`, `nanoclaw`, `zeroclaw`, `hermes-agent`, `ClawWork`, `himalaya`, `neverest`, `gogcli`, `gmailsorter`, `inbox-zero`, `email-oauth2-proxy`, and `notmuch`/`isync`) and remove other clones as their comparison value expires. Additional clean SDK/framework clones under `~/Work/Github` and `~/Work/Code` remain outside this pack-specific count.
+The 115 clean upstream clones in the four audited packs are replaceable reference caches. Within `~/Work/Claw`, all 13 `Claws` repositories and 17 of 18 `Emails` repositories are clean for preservation purposes; incidental `.DS_Store` files are ignored. Keep the focused working shelf (`nanoclaw`, `zeroclaw`, `hermes-agent`, `ClawWork`, `himalaya`, `neverest`, `gogcli`, `gmailsorter`, `inbox-zero`, `email-oauth2-proxy`, and `notmuch`/`isync`) and remove other clones as their comparison value expires. Additional clean SDK/framework clones under `~/Work/Github` and `~/Work/Code` remain outside this pack-specific count.
+
+## Current Unpreserved Work
+
+This is the final non-archival preservation ledger as of 2026-07-07. It lists
+original work that is neither reachable from a configured remote nor captured
+in another durable project. Clean upstream clones, generated output, `OLD`,
+`Save`, and similarly named archival trees are excluded.
+
+| Priority | Work | Current evidence | Preservation action |
+|---|---|---|---|
+| P0 | `~/Work/Claw/Setpacks/openclaw/today/openclaw/workspace/skills/neverest/SKILL.md` | Unique 6.5 KB integration skill; absent from pushed `claw_emails` | Copy to `openclaw-docs/skills/neverest`, validate, commit, and push on `claw_emails`. |
+| P0 | `~/Work/Claw/Emails/Data/gogdata/gog-gmail-capture.sh` | Unique 4.6 KB capture tool; absent from pushed `claw_emails` | Copy to `openclaw-docs/scripts/email`, run syntax and secret checks, commit separately, and push. |
+| P0 | `~/Work/Claude/Agents` | Clean local Git repository with authored Claude agent-operation guides and scripts, but no remote | Create a private/personal remote or bundle the repository. Do not reduce it to loose copied Markdown. |
+| P0 | `~/Work/Github/truj` | 83-file, 1.5 MB non-Git labor/Fedload corpus containing vocabulary, aliases, source manifests, schemas, and fixtures | Initialize a focused repository or make a hashed snapshot before extracting the ingestion pilot. |
+| P0 | `~/Work/LLMHW` | 16-file, 176 KB non-Git recovery containing the Groq-era transcript, report, tables, and source history | Put the directory under Git and push it as the durable recovery package. Keep the later Equihash work out. |
+| P1 | `~/Work/Code/CodeSess` | `CursorSessions.md` and `TasksKill.md` are untracked; both are substantial operational references | Review for host-specific/private details, then commit to `fear-ai/codess` or deliberately relocate their reusable content. |
+| P1 | `~/Work/Code/MCP/MCPs/mcpred` | Staged `SERVERS.md`, 704-line `TODO.md` expansion, and nine untracked MCP testing/security artifacts | Split current implementation/status from generated research, commit the useful set on `develop`, and push. |
+| P1 | `~/Work/Code/Misses/petri/petri` | Local `corpus/extract-embedded-prompts` work extracts ten embedded prompts from three Petri modules; no remote branch contains it | Commit on the named branch and push to a fork, or export one patch plus the ten prompt files into the parent Misses corpus. |
+| P1 | `~/Work/Github/Transcript/avtranscript` | Ten tracked WIP changes and four untracked status/log artifacts; current deletions break the documented static build | Decide restore-versus-complete, retain `STATUS0.md` findings, then make one explicit WIP/archive commit before further cleanup. |
+| P1 | `~/Work/Claude/Claudes/claude-code-system-prompts/docs/SessionRec.md` | Untracked 303-line cross-harness session schema and implementation proposal in an upstream reference clone | Move the authored document to CodeSess or CContext, then commit there; do not leave it in the replaceable clone. |
+| P1 | `~/Work/ZK/ZKs/insight/insight-ui-zero` branch `ui-refresh` | Four local commits ending at `e559cbe`; no remote branch contains them | Push the branch if still applicable, or export a patch before pruning the checkout. |
+| P1 | `~/Work/ZK/ZKs/bitcoin-src/Zeros` | Untracked 13 KB multisig/signet tutorial inside a detached upstream Bitcoin clone | Move to a controlled docs repository or save as a patch before replacing the clone. |
+
+Items reviewed but not preservation priorities:
+
+- `fedloadw` has only deleted `.gitattributes` and `.gitignore`; no useful local
+  implementation is waiting to be saved.
+- `Emails/himalaya` has only a Rust 1.82 -> 1.90 toolchain override; preserve a
+  patch only if that override is still required.
+- the nested `codex-rs0` repository is clean and pushed on `origin/notes`; the
+  parent Codex clone merely sees it as an untracked nested checkout. The parent
+  `Cargo.lock` rewrite looks regenerable.
+- `ZeroPerf` raw profiling trees remain local and large, but the conclusions and
+  three formerly unpushed commits are now on `origin/perf-401`. Retain raw data
+  only where a published conclusion needs reproduction.
+- the Setpack workspace's thousands of deletions represent removed exports and
+  runtime state. Preserve the Neverest skill, not the workspace wholesale.
+
+Work that became durable during the final audit:
+
+| Repository | Current durable tip |
+|---|---|
+| `Claude/CContext` | `origin/main` at `46d06d6` |
+| `Code/Misses` | `origin/main` at `62f3fc8` |
+| `Github/Transcript` | clean `origin/develop` at `22dcd19` |
+| `Spank/HECpoc` | `origin/main` at `76aa392` |
+| `Spank/spank-py` | `origin/main` at `9b8c236` |
+| `ZK/ZKs/insight` | `origin/main` at `30739f4` |
+| `ZK/ZeroPerf` | `origin/perf-401` at `b1a99e9` |
 
 ## Recommended Next Actions
 
-1. Add a checked-in `STATUS.md` to `spank-rs` that points to `HECpoc`, `Bench.md`, and `SpankMax.md` and states the next three actions.
-2. Preserve `~/Work/Github/truj`, then extract its 58-term labor dictionary, organization aliases, 42-item source manifest, publication schema, and three representative source fixtures into a small canonical ingestion pilot.
-3. Make the first pilot milestone `raw artifact -> source mapper -> sparse normalized envelope -> JSONL -> inspection page`; defer dashboard breadth and database selection.
-4. Extend canonical `CodeSess` to summarize Codex app `state_5.sqlite` and project `.codess` databases; the stale lowercase checkout has been removed.
-5. For each wrap-up candidate, make one final commit or `ARCHIVE.md` stating why it is paused/superseded.
-6. For dirty third-party clones, either commit the patch if it is intentional, export it as a patch file, or reset/archive the clone after review.
+1. Finish the two-file Claw preservation pass.
+2. Give `Claude/Agents`, `truj`, and `LLMHW` durable Git homes.
+3. Commit the CodeSess session references and the MCPRed/Misses-Petri work.
+4. Resolve AVTrans as a buildable static prototype or one explicit archive commit.
+5. Preserve the two small ZK local-only artifacts before pruning reference clones.
+6. Make the first labor pilot milestone `raw artifact -> source mapper -> sparse normalized envelope -> JSONL -> inspection page`; defer dashboard breadth and database selection.
 7. Keep clean OSS clones out of the active mental load. They are reference shelves, not projects.

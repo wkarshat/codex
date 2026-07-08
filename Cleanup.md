@@ -380,9 +380,10 @@ system-managed.
 
 ## 9. Candidate Manifest
 
-`CleanupCandidates.tsv` contains 48 current rows sorted by priority, action, and target. It includes
-preservation, credential rotation, cache pruning, generated output, conditional
-application cleanup, clean-clone removal, and the two held Fedload cloud tasks.
+`CleanupCandidates.tsv` contains 58 current rows sorted by priority, action, and target. It includes
+the current local-only work preservation ledger, credential rotation, cache
+pruning, generated output, conditional application cleanup, clean-clone
+removal, and the two held Fedload cloud tasks.
 
 ```bash
 column -t -s $'\t' /Users/walter/Work/Codex/CleanupCandidates.tsv | less -S
@@ -400,14 +401,17 @@ review the prerequisite first.
 
 ## 10. Execution Order
 
-1. Preserve the Neverest skill and Gmail capture script; commit and push each.
-2. Rotate the exposed gateway token and remove the obsolete launch plist.
-3. Clear remaining application caches and stale Instruments traces for the fastest
+1. Preserve the local-only P0 work: Claude Agents, the Neverest skill, Gmail
+   capture script, `truj`, and `LLMHW`.
+2. Review and preserve the P1 CodeSess, MCPRed, Petri, AVTrans, session-schema,
+   and ZK contributions before cleaning their containing repositories.
+3. Rotate the exposed gateway token and remove the obsolete launch plist.
+4. Clear remaining application caches and stale Instruments traces for the fastest
    low-risk recovery.
-4. Remove ignored HECpoc build output and review benchmark results.
-5. Remove the OpenClaw linked worktree and primary clone if local checkouts are
+5. Remove ignored HECpoc build output and review benchmark results.
+6. Remove the OpenClaw linked worktree and primary clone if local checkouts are
    no longer wanted.
-6. Inspect Docker, Cursor backup state, Chrome's downloaded model, and optional
+7. Inspect Docker, Cursor backup state, Chrome's downloaded model, and optional
    applications before conditional cleanup.
-7. Remove whole clean reference clones only when their review role has ended.
-8. Re-measure the Data volume and the newly accessible protected home folders.
+8. Remove whole clean reference clones only when their review role has ended.
+9. Re-measure the Data volume and the newly accessible protected home folders.
